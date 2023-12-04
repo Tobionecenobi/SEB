@@ -7,7 +7,7 @@ SEB is a C++ library that allows you to build structures from building blocks su
 ### Workflow
 To give you a quick overview of how SEB works, imagine a structure that you want to build from the available building blocks. You can use SEB in C++ to attach the building blocks together and generate the form factor as a symbolic equation. You can then plot the equation by substituting the symbols with numerical values. A typical work flow of SEB is shown in the following picture:
 
-![Workflow](https://user-images.githubusercontent.com/45657039/224036019-3ec657a6-4b16-4d69-8783-e1eb8fb7a654.png)
+![Workflow](https://github.com/Tobionecenobi/SEB/assets/45657039/59a2129c-ce13-4534-8aef-69e5b7e02600)
 1. Imagine a structure one can build from the given building blocks (Here a polymer star).
 2. Using the SEB librabry in C++ build the structure by attaching the building blocks together (Here a polymer is the building block).
 3. End the code with calling ```cout << getFormFactor("PolymerStar") << endl``` to generate the form factor as an symbolic equation.
@@ -28,33 +28,33 @@ To use SEB in a C++ file, include the library by adding ```#include "PATH_TO_FOL
 ### Creating a world
 SEB is straightforward to use. To get started, create a world object using the World constructor:
 ```
-World world = World("world");
+World world;
 ```
 ### Adding one building block
 Next, add one building block to the world.. For now there is 1 building block:
-1. Random walk polymer `new RWpolymer()`
+1. Random walk polymer `"GaussianPolymer"`
 A random walk polymer can be added to the world by using:
 ```
-graphID g = world.add(new RWpolymer(), "poly1");
+GraphID g = world.add("GaussianPolymer", "poly1");
 ```
 ### Adding and linking a building blocks simulatniously
 When adding the polymer it is given a graph id `g` which other linked building blocks will share such that they are a part of the same building block. Other polymers can then be added to the world and then linked to `poly1` by:
 ```
-world.addAndLink(new RWpolymer(), "poly2.end1", "poly1.end2");
+world.Link("GaussianPolymer", "poly2.end1", "poly1.end2");
 ```
 Here the polymer has two reference points (possible points to link to) in each end called "end1" and "end2". Here `poly2` is added to `world` and `poly2`'s "end1" is linked to `poly1`'s "end2". ***BE AWARE THAT ONE CANNOT LINK BUILDING BLOCKS THAT ARE ALREADY ADDED TO THE WORLD*** this is to prevent loops of building blocks in the structure. 
 
 ### Wrapping the building blocks into a structure
 Now one has two polymers linked together by their ends. To get the form factor of such a structure one needs to "wrap" a structure around the sub unit:
 ```
-graphID g2 = worldb.add(g, "twoPolymers");
+graphID g2 = world.Add(g, "twoPolymers");
 ```
 
 ### Acurring the form factor of the structure
 Now a new graph is generated and carryies a graph id `g2`. Inside graph `g2` is graph `g` nested.
 Now one can print the sybolic equation for the form factor with the code:
 ```
-ex formFactor = pow(worldb.betaSum("brush", 2, 2),-2)*worldb.getFormFactor("brush", 2, 2);
+ex formFactor=w.FormFactor("twoPolymers");
 cout << latex;
 cout << formFactor << endl;
 ```
