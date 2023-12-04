@@ -1,0 +1,23 @@
+This is where the individual sub-units are implemented.
+
+To add a new sub-unit do:
+
+   1) copy one of the existing sub-unit .hpp files to mysubunit.hpp and implement your scattering expressions there.
+
+   2) write  stype = MYSUBUNIT  in the constructor and add MYSUBUNIT to enum in constant.hpp
+
+   3) add mysubunit.hpp to Subunits.hpp
+
+   4) add a line 
+ 
+       else if (subtype == "MySubunit")         return new MySubunit();
+ 
+      to CreateSubunit.hpp 
+   
+   
+and do make seb in the root to recompile the library.
+
+
+NB we strongly advise testing all scattering expression e.g. against numerically sampled distances
+to validate that the expressions are correct. See e.g. our ~seb/Validation folder.
+
