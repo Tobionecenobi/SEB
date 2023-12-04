@@ -35,7 +35,7 @@ Next, add one building block to the world.. For now there is 1 building block:
 1. Random walk polymer `"GaussianPolymer"`
 A random walk polymer can be added to the world by using:
 ```
-GraphID g = world.add("GaussianPolymer", "poly1");
+GraphID g = world.Add("GaussianPolymer", "poly1");
 ```
 ### Adding and linking a building blocks simulatniously
 When adding the polymer it is given a graph id `g` which other linked building blocks will share such that they are a part of the same building block. Other polymers can then be added to the world and then linked to `poly1` by:
