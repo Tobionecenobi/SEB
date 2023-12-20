@@ -55,6 +55,24 @@ make
 
 will compile the SEB library (into build/libseb.a), along with all the examples (in Examples), code for generating figures in the SEB paper (in PaperFigs). Assuming everything went well, then Examples and PaperFigs will be full of executables which you can run to see how SEB works. These targets can be recompiled individually by calling make with "seb", "examples", "paperFigs", or "work" as an argument. The last argument compiles user own code in the work folder, which is empty when you clone the repo.
 
+### Running an example
+
+```
+cd examples
+./Micelle
+```
+
+This example calculates the scattering from 100 Gaussian polymers added to the surface of a solid sphere, in particular, the form factor, the form factor amplitude relative to the center, and the phase factor between two free polymer ends. The output of the program is
+
+```
+Form factor= \frac{9900 \frac{ \sin( R_{sphere} q)^{2} {(-1+\exp(- R_{g_{poly}}^{2} q^{2}))}^{2} \beta_{poly}^{2}}{ R_{sphere}^{2} R_{g_{poly}}^{4} q^{6}}+200 \frac{ \beta_{poly}^{2} {(-1+ R_{g_{poly}}^{2} q^{2}+\exp(- R_{g_{poly}}^{2} q^{2}))}}{ R_{g_{poly}}^{4} q^{4}}-600 \frac{ \beta_{sphere} \sin( R_{sphere} q) {(-1+\exp(- R_{g_{poly}}^{2} q^{2}))} \beta_{poly} {(\sin( R_{sphere} q)- R_{sphere} \cos( R_{sphere} q) q)}}{ R_{sphere}^{4} R_{g_{poly}}^{2} q^{6}}+9 \frac{ \beta_{sphere}^{2} {(\sin( R_{sphere} q)- R_{sphere} \cos( R_{sphere} q) q)}^{2}}{ R_{sphere}^{6} q^{6}}}{\beta_{sphere}^{2}+10000 \beta_{poly}^{2}+200  \beta_{sphere} \beta_{poly}}
+
+Form factor amplitude relative to centre= -\frac{100 \frac{ \sin( R_{sphere} q) {(-1+\exp(- R_{g_{poly}}^{2} q^{2}))} \beta_{poly}}{ R_{sphere} R_{g_{poly}}^{2} q^{3}}-3 \frac{ \beta_{sphere} {(\sin( R_{sphere} q)- R_{sphere} \cos( R_{sphere} q) q)}}{ R_{sphere}^{3} q^{3}}}{\beta_{sphere}+100 \beta_{poly}}
+
+Phase factor tip-to-tip= \frac{ \sin( R_{sphere} q)^{2} \exp(-2  R_{g_{poly}}^{2} q^{2})}{ R_{sphere}^{2} q^{2}}
+```
+
+Here R_{sphere} is the radius of the sphere, \beta_{sphere} the excess scattering length of the sphere, R_{poly} is the radius of gyration of the polymer, and \beta_{poly} is its excess scattering length. All scattering expressions are normalized so they converge to unity in the q->0 limit.
 
 ## Using SEB in your own C++ Code
 
@@ -69,27 +87,38 @@ To derive the scattering for a diblock copolymer created by linking two Gaussian
 int main()
 {
     // Define world
-    World world;
+    World w;
 
     // Add a single polymer, named 'poly1'
-    GraphID g = world.Add("GaussianPolymer", "poly1");
+    GraphID g = w.Add("GaussianPolymer", "poly1");
 
     // Add a second polymer, named 'poly2'. Poly2's end1 is linked to poly1's end2 forming a diblock copolymer
-    world.Link("GaussianPolymer", "poly2.end1", "poly1.end2");
+    w.Link("GaussianPolymer", "poly2.end1", "poly1.end2");
 
     // Wrap the g structure naming it "diblockcopolymer"
-    GraphID g2 = world.Add(g, "diblockcopolymer);
+    GraphID g2 = w.Add(g, "diblockcopolymer");
 
     // Request the symbolic expression for the form factor of this structure
     ex formFactor=w.FormFactor("diblockcopolymer");
 
-    // Request output of equations is LaTeX formatted
+    // Print out form factor expression
+    cout << formFactor << endl;
+
+    // Request LaTeX formatted output
     cout << latex;
 
-    // Print out form factor expression
+    // Print out LaTeX expression for form factor
     cout << formFactor << endl;
 }
 ```
+
+The output is
+```
+2*(beta_poly1^2+beta_poly2^2+2*beta_poly2*beta_poly1)^(-1)*(beta_poly2^2*Rg_poly2^(-4)*q^(-4)*(-1+exp(-Rg_poly2^2*q^2)+Rg_poly2^2*q^2)+q^(-4)*(-1+q^2*Rg_poly1^2+exp(-q^2*Rg_poly1^2))*Rg_poly1^(-4)*beta_poly1^2+beta_poly2*Rg_poly2^(-2)*q^(-4)*Rg_poly1^(-2)*(-1+exp(-Rg_poly2^2*q^2))*beta_poly1*(-1+exp(-q^2*Rg_poly1^2)))
+
+2 \frac{\frac{ \beta_{poly2}^{2} {(-1+\exp(- R_{g_{poly2}}^{2} q^{2})+ R_{g_{poly2}}^{2} q^{2})}}{ R_{g_{poly2}}^{4} q^{4}}+\frac{ {(-1+ q^{2} R_{g_{poly1}}^{2}+\exp(- q^{2} R_{g_{poly1}}^{2}))} \beta_{poly1}^{2}}{ q^{4} R_{g_{poly1}}^{4}}+\frac{ \beta_{poly2} {(-1+\exp(- R_{g_{poly2}}^{2} q^{2}))} \beta_{poly1} {(-1+\exp(- q^{2} R_{g_{poly1}}^{2}))}}{ R_{g_{poly2}}^{2} q^{4} R_{g_{poly1}}^{2}}}{\beta_{poly1}^{2}+\beta_{poly2}^{2}+2  \beta_{poly2} \beta_{poly1}}
+```
+where the top line is the symbolic expression in the default format, and the bottom expression is formatted according to LaTeX.
 
 ## Compiling 
 
