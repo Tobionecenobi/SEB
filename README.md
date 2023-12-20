@@ -178,14 +178,14 @@ To compile the code depends on where your code is located
 ```
 make work
 ```
-Running this command in the SEB parent folder will compile and link user c++ code in the work folder using the SEB compile infrastructure. The resulting executable is placed in the SEB/work/ folder.
+Running this command in the SEB parent folder will compile and link user C++ code in the work folder using the SEB compile infrastructure. The resulting executable is placed in the SEB/work folder.
 
-### anywhere else
+### Elsewhere
 
-Assuming your code is in code.cpp then uou can compile and link your code with
+Assuming your code is in code.cpp then you can compile and link your code manually with
 ```
-c++ -O2 -c -I<location of SEB/SEB folder/> code.cpp
-c++  code.o  -lseb -lgsl -lgslcblas -lm -lginac -L<location of build folder/>  -o myexecutable
+c++ -O2 -c -IFOLDER/SEB/SEB code.cpp
+c++  code.o  -lseb -lgsl -lgslcblas -lm -lginac -LFOLDER/SEB/build  -o myexecutable
 ```
 where the user manually has to specify the location of the header files (FOLDER/SEB/SEB/) and the library (FOLDER/SEB/build/), where you should modify FOLDER to fit your local environment. Note its important the object file is specified before the libraries.
 
