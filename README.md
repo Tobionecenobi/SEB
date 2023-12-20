@@ -60,60 +60,49 @@ will compile the SEB library (into build/libseb.a), along with all the examples 
 
 To use SEB you can either 1) develop code in the SEB/work folder  or 2) develop code anywhere on your computer. Option 1 allows you to reuse the SEB compilation infrastructure and no installation of SEB is required. Option 2 requires the user to manually compile the code specifying where SEB header files and library is located.
 
-### Creating a world
+### Example source code
 
-SEB is straightforward to use. To use SEB in a C++ file, include the library by adding ```#include "PATH_TO_FOLDER/SEB.h"```, to your code, where `PATH_TO_FOLDER` is the given path to `SEB.h`. 
+To derive the scattering for a diblock copolymer created by linking two Gaussian polymer models end-to-end, we do
+```
+#include "SEB.hpp"
 
-To get started, create a world object using the World constructor:
-```
-World world;
-```
-### Adding one building block
-Next, add one building block to the world.. For now there is 1 building block:
-1. Random walk polymer `"GaussianPolymer"`
-A random walk polymer can be added to the world by using:
-```
-GraphID g = world.Add("GaussianPolymer", "poly1");
-```
-### Adding and linking a building blocks simulatniously
-When adding the polymer it is given a graph id `g` which other linked building blocks will share such that they are a part of the same building block. Other polymers can then be added to the world and then linked to `poly1` by:
-```
-world.Link("GaussianPolymer", "poly2.end1", "poly1.end2");
-```
-Here the polymer has two reference points (possible points to link to) in each end called "end1" and "end2". Here `poly2` is added to `world` and `poly2`'s "end1" is linked to `poly1`'s "end2". ***BE AWARE THAT ONE CANNOT LINK BUILDING BLOCKS THAT ARE ALREADY ADDED TO THE WORLD*** this is to prevent loops of building blocks in the structure. 
+int main()
+{
+    // Define world
+    World world;
 
-### Wrapping the building blocks into a structure
-Now one has two polymers linked together by their ends. To get the form factor of such a structure one needs to "wrap" a structure around the sub unit:
-```
-graphID g2 = world.Add(g, "twoPolymers");
+    // Add a single polymer, named 'poly1'
+    GraphID g = world.Add("GaussianPolymer", "poly1");
+
+    // Add a second polymer, named 'poly2'. Poly2's end1 is linked to poly1's end2 forming a diblock copolymer
+    world.Link("GaussianPolymer", "poly2.end1", "poly1.end2");
+
+    // Wrap the g structure naming it "diblockcopolymer"
+    GraphID g2 = world.Add(g, "diblockcopolymer);
+
+    // Request the symbolic expression for the form factor of this structure
+    ex formFactor=w.FormFactor("diblockcopolymer");
+
+    // Request output of equations is LaTeX formatted
+    cout << latex;
+
+    // Print out form factor expression
+    cout << formFactor << endl;
+}
 ```
 
-### Obtaining the form factor of the structure
-Now a new graph is generated and carryies a graph id `g2`. Inside graph `g2` is graph `g` nested.
-Now one can print the sybolic equation for the form factor with the code:
-```
-ex formFactor=w.FormFactor("twoPolymers");
-cout << latex;
-cout << formFactor << endl;
-```
-The output is the form factor in latex format. For other formats check the [GiNaC documentation](https://www.ginac.de/tutorial/#Expression-output).
+## Compiling 
 
-<!-- Comment is starting that cannot be viewed in the markdown file
-Now g2 -> g1 == two linked polymers.
+To compile the code depends on where your code is located
 
-After doing the stuff in the installation session start the code by including `SEB.h`
-```#include "PATH_TO_FOLDER/SEB.h"```, where `PATH_TO_FOLDER` is the given path to `SEB.h`. 
-Then in the main function start by creating a world and give the world a name:
--->
-
-### Compiling 1) work folder
+## SEB/work folder
 
 ```
 make work
 ```
 Running this command in the SEB parent folder will compile and link user c++ code in the work folder using the SEB compile infrastructure. The resulting executable is placed in the SEB/work/ folder.
 
-### Compiling 2) anywhere else
+### anywhere else
 
 Assuming your code is in code.cpp then uou can compile and link your code with
 ```
