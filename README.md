@@ -2,10 +2,10 @@
 *A C++ library where one can build a structure from geometric shapes from which one can get its small angle scattering properties*.
 
 ## Introduction
-SEB is a C++ library that allows you to build structures from building blocks such as spheres, polymers, rods, etc., and obtain their scattering properties symbolically. SEB provides functions that enable you to attach building blocks together at specific points called reference points, and compute the form factor of a composite structure, $F$, the radius of gyration, $R^2_g$, and other scattering properties. These properties are for small angle scattering theory and are meant for structures floating around, some litterature would call the form factor the isotropic form factor.
+SEB is a C++ library that allows you to build structures from building blocks such as spheres, polymers, rods, etc., and obtain their scattering properties symbolically. SEB provides functions that enable you to attach building blocks together at specific points called reference points, and compute the form factor of a composite structure, $F$, the radius of gyration, $R^2_g$, and other scattering properties. These properties are for small angle scattering theory and are meant for structures floating around, some litterature would call the isotropic form factor.
 
 ### Workflow
-To give you a quick overview of how SEB works, imagine a structure that you want to build from the available building blocks. You can use SEB in C++ to attach the building blocks together and generate the form factor as a symbolic equation. You can then plot the equation by substituting the symbols with numerical values. A typical work flow of SEB is shown in the following picture:
+To give you a quick overview of how SEB works, imagine a structure that you want to build from the available building blocks. You can use SEB to write a short C++ program that defines the structure, and generate the form factor as a symbolic equation. You can then plot the equation by substituting the symbols with numerical values. A typical work flow of SEB is shown in the following picture:
 
 ![Workflow](https://github.com/Tobionecenobi/SEB/assets/45657039/59a2129c-ce13-4534-8aef-69e5b7e02600)
 1. Imagine a structure one can build from the given building blocks (Here a polymer star).
@@ -73,6 +73,8 @@ Phase factor tip-to-tip= \frac{ \sin( R_{sphere} q)^{2} \exp(-2  R_{g_{poly}}^{2
 ```
 
 Here R_{sphere} is the radius of the sphere, \beta_{sphere} the excess scattering length of the sphere, R_{poly} is the radius of gyration of the polymer, and \beta_{poly} is its excess scattering length. All scattering expressions are normalized so they converge to unity in the q->0 limit.
+
+The example folder has numerous other examples, most of which produce symbolic expressions. Example/Validate*.cpp we use to validate the expression implemented in SEB against tabulated data generated with Mathematica (folder Mathematica and Examples/Validation/). The code to generate all the figures from the SEB paper is located in PaperFigs, these show how to evaluate a symbolic expression numerically to predict scattering curves. We have also uploaded png plots of the figures with illustrations of the structures.
 
 ## Using SEB in your own C++ Code
 
