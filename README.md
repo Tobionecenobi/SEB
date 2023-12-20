@@ -2,7 +2,7 @@
 *A C++ library where one can build a structure from geometric shapes from which one can get its small angle scattering properties*.
 
 ## Introduction
-SEB is a C++ library that allows you to build structures from building blocks such as spheres, polymers, rods, etc., and obtain their scattering properties symbolically. SEB provides functions that enable you to attach building blocks together at specific points called reference points, and compute the form factor, $F$, the radius of gyration, $R^2_g$, and other scattering properties of the resulting structure. These properties are for small angle scattering theory and are meant for structures floating around, some litterature would call the form factor the isotropic form factor.
+SEB is a C++ library that allows you to build structures from building blocks such as spheres, polymers, rods, etc., and obtain their scattering properties symbolically. SEB provides functions that enable you to attach building blocks together at specific points called reference points, and compute the form factor of a composite structure, $F$, the radius of gyration, $R^2_g$, and other scattering properties. These properties are for small angle scattering theory and are meant for structures floating around, some litterature would call the form factor the isotropic form factor.
 
 ### Workflow
 To give you a quick overview of how SEB works, imagine a structure that you want to build from the available building blocks. You can use SEB in C++ to attach the building blocks together and generate the form factor as a symbolic equation. You can then plot the equation by substituting the symbols with numerical values. A typical work flow of SEB is shown in the following picture:
@@ -124,7 +124,7 @@ where the user manually has to specify the location of the header files (FOLDER/
 
 ## Bibtex
 
-
+```
 @article{svaneborg2012formalism1,
   title={A formalism for scattering of complex composite structures. I. Applications to branched structures of asymmetric sub-units},
   author={Svaneborg, Carsten and Pedersen, Jan Skov},
@@ -146,3 +146,4 @@ where the user manually has to specify the location of the header files (FOLDER/
   year={2012},
   publisher={AIP Publishing}
 }
+```
