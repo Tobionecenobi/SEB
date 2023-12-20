@@ -77,7 +77,7 @@ will compile the SEB library (into build/libseb.a), along with all the examples 
 ### Running an example
 
 ```
-cd examples
+cd Examples
 ./Micelle
 ```
 
@@ -98,8 +98,7 @@ LaTeX produce the following rendering of the form factor expression:
 
 This looks pretty horrific because GiNaC does not attempt to simplify expressions, but it has the advantage that we can immediately provide a physical interpretation of all the terms. The terms in the numerator describe 1) the polymer-to-polymer interference contribution, 2) the single polymer Debye form factor, 3) the polymer-to-core interference contribution, 4) the Rayleigh form factor of the core. The numerator is the total excess scattering length squared hence its just (100 \beta_{poly}+\beta_{sphere})^2.
 
-The example folder has numerous other examples, most of which produce symbolic expressions.  The code to generate all the figures from the SEB paper is located in PaperFigs, these show how to evaluate a symbolic expression numerically to predict scattering curves. We have also uploaded png plots of the figures with illustrations of the structures.
-
+The example folder has numerous other examples, most of which produce symbolic expressions. These can become very long. The code to generate all the figures from the SEB paper is located in PaperFigs. We have uploaded png plots of the figures with illustrations of the structures. For each curve, there is a corresponding C++ file that generates that structure and its scattering curve.
 
 ## Validation
 
