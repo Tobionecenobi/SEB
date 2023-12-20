@@ -13,6 +13,25 @@ To give you a quick overview of how SEB works, imagine a structure that you want
 3. End the code with calling ```cout << getFormFactor("PolymerStar") << endl``` to generate the form factor as an symbolic equation.
 4. Plot the equation by substituting the symbols in the equation. 
 
+### Supported Subunits (SEB V1.0)
+
+![Subunits](https://github.com/Tobionecenobi/SEB/assets/22714271/8ca00de9-60e3-4895-bc50-648d4b9f6d68)
+
+Overview of supported sub-units
+    a) a solid cylinder (SolidCylinder: center, hull, ends, surface),
+    b) a solid sphere (SolidSphere: center, surface),
+    c) a solid spherical shell (SolidSphericalShell: center, surfacei, surfaceo, surface),
+    d) a thin spherical shell (ThinSphericalShell: center, surface),
+    e) a thin disk (ThinDisk: center, surface, rim),
+    f) a linear polymer (GaussianPolymer: end1, end2, middle, contour),
+    g) a polymer loop (GaussianLoop: contour),
+    h) a thin circle (ThinCircle: center, contour),
+    i) a thin rod (ThinRod: end1, end2, middle, contour),
+    j) an invisible point (Point: point). 
+    For each sub-unit type, the parenthesis shows its SEB name and 
+    reference points by which it can be linked to other sub-units.
+
+
 ### SEB Articles
 The theory behind SEB can be found in the journal articles: Carsten Svaneborg, Jan Skov Pedersen, J. Chem. Phys. 136, 104105 (2012) "[A formalism for scattering of complex composite structures. I. Applications to branched structures of asymmetric sub-units](https://doi.org/10.1063/1.3682778)" and Carsten Svaneborg, Jan Skov Pedersen, J. Chem. Phys. 136, 154907 (2012) "[A formalism for scattering of complex composite structures. II. Distributed reference points](https://doi.org/10.1063/1.3701737)"
 
