@@ -13,11 +13,11 @@ To give you a quick overview of how SEB works, imagine a structure that you want
 3. End the code with calling ```cout << getFormFactor("PolymerStar") << endl``` to generate the form factor as an symbolic equation.
 4. Plot the equation by substituting the symbols in the equation. 
 
-### Supported Subunits (SEB V1.0)
+### Supported Subunits
 
 ![Subunits](https://github.com/Tobionecenobi/SEB/assets/22714271/8ca00de9-60e3-4895-bc50-648d4b9f6d68)
 
-Overview of supported sub-units
+Overview of supported sub-units (SEB V1.0)
     a) a solid cylinder (SolidCylinder: center, hull, ends, surface),
     b) a solid sphere (SolidSphere: center, surface),
     c) a solid spherical shell (SolidSphericalShell: center, surfacei, surfaceo, surface),
@@ -93,6 +93,11 @@ Phase factor tip-to-tip= \frac{ \sin( R_{sphere} q)^{2} \exp(-2  R_{g_{poly}}^{2
 
 Here R_{sphere} is the radius of the sphere, \beta_{sphere} the excess scattering length of the sphere, R_{poly} is the radius of gyration of the polymer, and \beta_{poly} is its excess scattering length. All scattering expressions are normalized so they converge to unity in the q->0 limit.
 
+LaTeX produce the following rendering of the form factor expression:
+![image](https://github.com/Tobionecenobi/SEB/assets/22714271/d1007085-48ab-452e-9fe6-94823bbeac44)
+
+This looks pretty horrific because GiNaC does not attempt to simplify expressions, but it has the advantage that we can immediately provide a physical interpretation of all the terms. The terms in the numerator describe 1) the polymer-to-polymer interference contribution, 2) the single polymer Debye form factor, 3) the polymer-to-core interference contribution, 4) the Rayleigh form factor of the core. The numerator is the total excess scattering length squared hence its just (100 \beta_{poly}+\beta_{sphere})^2.
+
 The example folder has numerous other examples, most of which produce symbolic expressions.  The code to generate all the figures from the SEB paper is located in PaperFigs, these show how to evaluate a symbolic expression numerically to predict scattering curves. We have also uploaded png plots of the figures with illustrations of the structures.
 
 
@@ -159,7 +164,11 @@ The output is
 
 2 \frac{\frac{ \beta_{poly2}^{2} {(-1+\exp(- R_{g_{poly2}}^{2} q^{2})+ R_{g_{poly2}}^{2} q^{2})}}{ R_{g_{poly2}}^{4} q^{4}}+\frac{ {(-1+ q^{2} R_{g_{poly1}}^{2}+\exp(- q^{2} R_{g_{poly1}}^{2}))} \beta_{poly1}^{2}}{ q^{4} R_{g_{poly1}}^{4}}+\frac{ \beta_{poly2} {(-1+\exp(- R_{g_{poly2}}^{2} q^{2}))} \beta_{poly1} {(-1+\exp(- q^{2} R_{g_{poly1}}^{2}))}}{ R_{g_{poly2}}^{2} q^{4} R_{g_{poly1}}^{2}}}{\beta_{poly1}^{2}+\beta_{poly2}^{2}+2  \beta_{poly2} \beta_{poly1}}
 ```
-where the top line is the symbolic expression in the default format, and the bottom expression is formatted according to LaTeX.
+where the top line is the symbolic expression in the default format, and the bottom expression is formatted according to LaTeX. Rendinger the equation in LaTeX we get the following
+
+![image](https://github.com/Tobionecenobi/SEB/assets/22714271/99c94093-7292-46d8-a6db-10bf8a6d6617)
+
+Again we can interpret the physical origin of the three terms in this expression. The terms in the numerator are 1) the Debye form factor of poly2, 2) the Debye form factor of poly1, and 3) the interference contribution between scatterers on poly1 and scatterers on poly2. The numerator is the total excess scattering length squared which is given by (\beta_{poly1}+\beta_{poly2})^2. 
 
 ## Compiling 
 
