@@ -51,9 +51,11 @@ The reference for the SEB library itself is Tobias W. J. Jarret and Carsten Svan
 ## Dependencies
 
 SEB has only been compiled on linux systems and has not been tested on mac OS or Windows.  If you are using Windows, we recommend using the *Windows Subsystem for Linux* (WSL), search for it in the search bar. Before downloading the source code make sure you have installed
-1. a working C++11 compliant compiler and make system on your system. 
-2. The [GiNaC](https://www.ginac.de/Download.html) symbolic manipulation library for C++
-3. The [GNU scientific Libary](https://www.gnu.org/software/gsl/) 
+
+1. A working C++11 compliant compiler.
+2. A standard development environment with make and git. 
+3. The [GiNaC](https://www.ginac.de/Download.html) symbolic manipulation library for C++
+4. The [GNU scientific Libary](https://www.gnu.org/software/gsl/) 
 
 
 ## Installing SEB on Linux
