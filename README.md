@@ -17,17 +17,17 @@ To give you a quick overview of how SEB works, imagine a structure that you want
 
 ![Subunits](https://github.com/Tobionecenobi/SEB/assets/22714271/8ca00de9-60e3-4895-bc50-648d4b9f6d68)
 
-Overview of supported sub-units (SEB V1.0)
-    a) a solid cylinder (SolidCylinder: center, hull, ends, surface),
-    b) a solid sphere (SolidSphere: center, surface),
-    c) a solid spherical shell (SolidSphericalShell: center, surfacei, surfaceo, surface),
-    d) a thin spherical shell (ThinSphericalShell: center, surface),
-    e) a thin disk (ThinDisk: center, surface, rim),
-    f) a linear polymer (GaussianPolymer: end1, end2, middle, contour),
-    g) a polymer loop (GaussianLoop: contour),
-    h) a thin circle (ThinCircle: center, contour),
-    i) a thin rod (ThinRod: end1, end2, middle, contour),
-    j) an invisible point (Point: point). 
+Overview of supported sub-units (SEB V1.0):
+    **a)** a solid cylinder (SolidCylinder: center, hull, ends, surface),
+    **b)** a solid sphere (SolidSphere: center, surface),
+    **c)** a solid spherical shell (SolidSphericalShell: center, surfacei, surfaceo, surface),
+    **d)** a thin spherical shell (ThinSphericalShell: center, surface),
+    **e)** a thin disk (ThinDisk: center, surface, rim),
+    **f)** a linear polymer (GaussianPolymer: end1, end2, middle, contour),
+    **g)** a polymer loop (GaussianLoop: contour),
+    **h)** a thin circle (ThinCircle: center, contour),
+    **i)** a thin rod (ThinRod: end1, end2, middle, contour),
+    **j)** an invisible point (Point: point). 
     For each sub-unit type, the parenthesis shows its SEB name and 
     reference points by which it can be linked to other sub-units.
 
@@ -92,37 +92,40 @@ Form factor amplitude relative to centre= -\frac{100 \frac{ \sin( R_{sphere} q) 
 Phase factor tip-to-tip= \frac{ \sin( R_{sphere} q)^{2} \exp(-2  R_{g_{poly}}^{2} q^{2})}{ R_{sphere}^{2} q^{2}}
 ```
 
-Here R_{sphere} is the radius of the sphere, \beta_{sphere} the excess scattering length of the sphere, R_{poly} is the radius of gyration of the polymer, and \beta_{poly} is its excess scattering length. All scattering expressions are normalized so they converge to unity in the q->0 limit.
+Here ```R_{sphere}``` is the radius of the sphere, ```\beta_{sphere}``` the excess scattering length of the sphere, ```R_{poly}``` is the radius of gyration of the polymer, and ```\beta_{poly}``` is its excess scattering length. All scattering expressions are normalized so they converge to unity in the q->0 limit.
 
 LaTeX produce the following rendering of the form factor expression:
-![image](https://github.com/Tobionecenobi/SEB/assets/22714271/d1007085-48ab-452e-9fe6-94823bbeac44)
+$$\frac{9900 \frac{ \sin( R_{sphere} q)^{2} {(-1+\exp(- R_{g_{poly}}^{2} q^{2}))}^{2} \beta_{poly}^{2}}{ R_{sphere}^{2} R_{g_{poly}}^{4} q^{6}}+200 \frac{ \beta_{poly}^{2} {(-1+ R_{g_{poly}}^{2} q^{2}+\exp(- R_{g_{poly}}^{2} q^{2}))}}{ R_{g_{poly}}^{4} q^{4}}-600 \frac{ \beta_{sphere} \sin( R_{sphere} q) {(-1+\exp(- R_{g_{poly}}^{2} q^{2}))} \beta_{poly} {(\sin( R_{sphere} q)- R_{sphere} \cos( R_{sphere} q) q)}}{ R_{sphere}^{4} R_{g_{poly}}^{2} q^{6}}+9 \frac{ \beta_{sphere}^{2} {(\sin( R_{sphere} q)- R_{sphere} \cos( R_{sphere} q) q)}^{2}}{ R_{sphere}^{6} q^{6}}}{\beta_{sphere}^{2}+10000 \beta_{poly}^{2}+200  \beta_{sphere} \beta_{poly}}
+$$
 
-This looks pretty horrific because GiNaC does not attempt to simplify expressions, but it has the advantage that we can immediately provide a physical interpretation of all the terms. The terms in the numerator describe 1) the polymer-to-polymer interference contribution, 2) the single polymer Debye form factor, 3) the polymer-to-core interference contribution, 4) the Rayleigh form factor of the core. The numerator is the total excess scattering length squared hence its just (100 \beta_{poly}+\beta_{sphere})^2.
+This looks pretty horrific because GiNaC does not attempt to simplify expressions, but it has the advantage that we can immediately provide a physical interpretation of all the terms. The terms in the numerator describe 1) the polymer-to-polymer interference contribution, 2) the single polymer Debye form factor, 3) the polymer-to-core interference contribution, 4) the Rayleigh form factor of the core. The numerator is the total excess scattering length squared hence its just $\left(100 \beta_{poly}+\beta_{sphere}\right)^2$.
 
-The example folder has numerous other examples, most of which produce symbolic expressions. These can become very long. The code to generate all the figures from the SEB paper is located in PaperFigs. We have uploaded png plots of the figures with illustrations of the structures. For each curve, there is a corresponding C++ file that generates that structure and its scattering curve.
+The [example folder](https://github.com/Tobionecenobi/SEB/tree/main/Examples) has numerous other examples, most of which produce symbolic expressions. These can become very long. The code to generate all the figures from the SEB paper is located in [PaperFigs](https://github.com/Tobionecenobi/SEB/tree/main/PaperFigs). We have uploaded png plots of the figures with illustrations of the structures. For each curve, there is a corresponding C++ file that generates that structure and its scattering curve.
 
 ## Validation
 
 To ensure that all the sub-unit scattering expressions implemented in SEB are correct. We have validated the code and theory as follows.
-
-For more complex geometries, we have sampled the scattering profiles directly. We generate random points on the surface and internally in the geometry. Based on these points we have used the Debye formula to calculate the scattering form factors between pairs of scatterers inside the geometry, form factor amplitudes between internal points and reference points, and finally the phase factors between all pairs of reference points. Here reference points in the example of a solid spherical shell would be the centre, the internal surface, the external surface and the total surface. This gives a relatively large number of synthetic scattering files for each geometry. (Code+data in Mathematica/Sampled)
-
+### Sampling Scattering Profiles for Complex Geometries
+For more complex geometries, we have sampled the scattering profiles directly. We generate random points on the surface and internally in the geometry. Based on these points we have used the Debye formula to calculate the scattering form factors between pairs of scatterers inside the geometry, form factor amplitudes between internal points and reference points, and finally the phase factors between all pairs of reference points. Here reference points in the example of a solid spherical shell would be the centre, the internal surface, the external surface and the total surface. This gives a relatively large number of synthetic scattering files for each geometry. (Code+data in [Mathematica/Sampled](https://github.com/Tobionecenobi/SEB/tree/main/Mathematica/Sampled))
+### Analytical Derivation and Comparison with Synthetic Data
 We have used Wolfram Mathematica to derive analytic expressions for the sub-units (Code in Mathematica/*.nb). Where relevant these expressions have been compared the synthetic data to ensure that all expressions derived by Mathematica match the sampled data within the statistical accuracy of our sampling. At this stage we can trust that theoretical expressions match the synthetic scattering data.
+### Implementation in SEB
+To implement sub-units in SEB, we have exported the Mathematica expressions to C++ either manually or using CForm[expression]. The resulting expresions are in sub-unit header files in the [SEB/Subunits folder](https://github.com/Tobionecenobi/SEB/tree/main/SEB/Subunits), where each header file is a specific sub-unit geometry. We also generate Guinier expansions of all scattering expressions to obtain size expressions for $\langle Rg^2 \rangle$ for the form factor, and $\sigma\langle R^2 \rangle$ for form factor amplitudes and phase factors. The size expressions are also exported to the C++ code. The ```SubUnit->ValidateDefinedTerms()``` method checks that all scattering terms and size terms are defined for the reference points combinations for a sub-unit.
+### Validation of Mathematical Correctness
+Finally, to ensure that the scattering terms not only exist but are also mathematically correct, we have taken the following steps:
+1. **Generation of Theoretical Scattering Data**: Using Mathematica, we have created tabulated theory scattering curves for each scattering expression. This data, devoid of statistical sampling errors, can be found in the [Examples/Validate subfolders](https://github.com/Tobionecenobi/SEB/tree/main/Examples/Validation).
+2. **Numerical Evaluation and Comparison**: Each scattering expression has been numerically evaluated at the same q-values as those used in the Mathematica-generated curves. We then compared the results from these numerical evaluations with the theoretical data. To ensure precision, we've set a tolerance level of $10^{-4}$ for the systematic error on the evaluation of the special functions. Scattering expressions showing deviations larger than this tolerance are flagged for review and potential correction.
 
-To implement sub-units in SEB, we have exported the Mathematica expressions to C++ either manually or using CForm[expression]. The resulting expresions are in sub-unit header files in the SEB/Subunits folder, where each header file is a specific sub-unit geometry. We also generate Guinier expansions of all scattering expressions to obtain size expressions for <Rg^2> for the form factor, and sigma*<R^2> for form factor amplitudes and phase factors. The size expressions are also exported to the C++ code. The SubUnit->ValidateDefinedTerms() method checks that all scattering terms and size terms are defined for the reference points combinations for a sub-unit.
-
-Finally to validate that the scattering terms does not only exist, but are also mathematically correct, we generate tabulated theory scattering curves using the Mathematica expressions for all scattering expressions. (data in Examples/Validate subfolders)  These theoretical scattering data have no statistical sampling errors.
-
-For each scattering expression, we have generated a corresponding tabulated theoretical scattering curve generated by Mathematica, and we numerically evaluate the sub-unit expressions at the same q-values and compare to the theoretical data. These should match within the accuracy of a tolerance, which is the systematic error on the evaluation of the special functions. We have chosen this as 10^-4. Scattering expressions with larger deviations are flagged as bugs that needs to be fixed.
-
-To check the Guinier expansions e.g. of a form factor amplitude, we predict the scattering from the Guinier expansion A_Guinier(q)= 1- q^2 sigma <R^2>/6, where an size expression for sigma <R^2> is hard-coded for each reference point. Where the second term is <0.01 we compare A_Guinier(q) to the scattering data generated by Mathematica. These should also match within the accuracy of a tolerance, that again we choose as 10^-4. Size expressions with larger deviations are flagged as bugs that needs to be fixed.
-
-For some of the sub-unit expressions but not all, we can also use GiNaC to expand the scattering terms directly as a Taylor series around q=0. That automatically generates the size expressions. In that case we perform a term-by-term comparison with the 1,0, 2<Rg^2> for form factors or 1, 0, sigma <R^2> for form factor amplitudes and phase factors to check that the expressions match. This does not work for special functions, where GiNaC does not know the Series expansions. The comparison also fails for expressions that are sufficiently complicated so even though A==B GiNaC is not able to simplify A-B to zero and hence prove their identity.
+By following these steps, we aim to guarantee that our mathematical formulations in SEB are not only theoretically sound but also practically applicable and accurate.
+### Checking Guinier Expansions
+To check the Guinier expansions e.g. of a form factor amplitude, we predict the scattering from the Guinier expansion $A_{\text{Guinier}}(q)= 1- q^2 \sigma \langle R^2\rangle/6$, where an size expression for $\sigma \langle R^2 \rangle$ is hard-coded for each reference point. Where the second term is $<0.01$ we compare $A_\text{Guinier}(q)$ to the scattering data generated by Mathematica. These should also match within the accuracy of a tolerance, that again we choose as $10^{-4}$. Size expressions with larger deviations are flagged as bugs that needs to be fixed.
+### Additional Checks with GiNaC
+For some of the sub-unit expressions but not all, we can also use GiNaC to expand the scattering terms directly as a Taylor series around $q=0$. That automatically generates the size expressions. In that case we perform a term-by-term comparison with the 1,0, $2 \langle Rg^2 \rangle$ for form factors or 1, 0, $\sigma\langle R^2 \rangle$ for form factor amplitudes and phase factors to check that the expressions match. This does not work for special functions, where GiNaC does not know the Series expansions. The comparison also fails for expressions that are sufficiently complicated so even though $A==B$ GiNaC is not able to simplify $A-B$ to zero and hence prove their identity.
 
 
 ## Using SEB in your own C++ Code
 
-To use SEB you can either 1) develop code in the SEB/work folder  or 2) develop code anywhere on your computer. Option 1 allows you to reuse the SEB compilation infrastructure and no installation of SEB is required. Option 2 requires the user to manually compile the code specifying where SEB header files and library is located.
+To use SEB you can either **1)** develop code in the SEB/work folder  or **2)** develop code anywhere on your computer. Option 1 allows you to reuse the SEB compilation infrastructure and no installation of SEB is required. Option 2 requires the user to manually compile the code specifying where SEB header files and library is located.
 
 ### Example source code
 
@@ -168,7 +171,7 @@ where the top line is the symbolic expression in the default format, and the bot
 
 ![image](https://github.com/Tobionecenobi/SEB/assets/22714271/99c94093-7292-46d8-a6db-10bf8a6d6617)
 
-Again we can interpret the physical origin of the three terms in this expression. The terms in the numerator are 1) the Debye form factor of poly2, 2) the Debye form factor of poly1, and 3) the interference contribution between scatterers on poly1 and scatterers on poly2. The numerator is the total excess scattering length squared which is given by (\beta_{poly1}+\beta_{poly2})^2. 
+Again we can interpret the physical origin of the three terms in this expression. The terms in the numerator are **1)** the Debye form factor of poly2, **2)** the Debye form factor of poly1, and **3)** the interference contribution between scatterers on poly1 and scatterers on poly2. The numerator is the total excess scattering length squared which is given by $(\beta_{poly1}+\beta_{poly2})^2$. 
 
 ## Compiling 
 
