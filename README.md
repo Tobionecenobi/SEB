@@ -34,10 +34,12 @@ Overview of supported sub-units (SEB V1.0):
 
 ### Example structures
 
-| __                         |                      ____ |
+| ---                        |  ---                      |
 | ---                        |  ---                      |
 | ![](PaperFigs/fig10.png)   |  ![](PaperFigs/fig11.png) |
 | ![](PaperFigs/fig12.png)   |  ![](PaperFigs/fig13.png) |
+
+Structures and form factors. **Top left image**) linear chains of different types of sub-units, **Top right image**) dendrimers of different types of sub-units, **bottom left image**) Rods and polymers attached to different surfaces on geometric bodies, and **bottom right image**) chain of 5 di-block copolymer stars and its form factor for three different contrasts. See the SEB paper for details and the [PaperFigs](https://github.com/Tobionecenobi/SEB/tree/main/PaperFigs) folder for the code to generate these.
 
 
 ### SEB Articles
