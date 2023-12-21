@@ -1,5 +1,6 @@
 # Scattering Equation Builder - SEB
-*A C++ library where one can build a structure from geometric shapes from which one can get its small angle scattering properties*.
+
+*SEB is a C++ library where one can build a structure by linking sub-units such as polymers or geometric shapes together and then ask SEB to analytically derive a symbolic expression for the small angle scattering of the structure.*
 
 ## Introduction
 SEB is a C++ library that allows you to build structures from building blocks such as spheres, polymers, rods, etc., and obtain their scattering properties symbolically. SEB provides functions that enable you to attach building blocks together at specific points called reference points, and compute the form factor of a composite structure, $F$, the radius of gyration, $R^2_g$, and other scattering properties. These properties are for small angle scattering theory and are meant for structures floating around, some litterature would call the isotropic form factor.
@@ -41,7 +42,7 @@ The reference for the SEB library itself is T. W. J. Jarret and Carsten Svanebor
 ## Dependencies
 
 SEB has only been compiled on linux systems and has not been tested on mac OS or Windows.  If you are using Windows, we recommend using the *Windows Subsystem for Linux* (WSL), search for it in the search bar. Before downloading the source code make sure you have installed
-1. a working C++ compiler and make system on your system. 
+1. a working C++11 compliant compiler and make system on your system. 
 2. The [GiNaC](https://www.ginac.de/Download.html) symbolic manipulation librabry for C++
 3. The [GNU scientific Libary](https://www.gnu.org/software/gsl/) 
 
@@ -191,7 +192,7 @@ Assuming your code is in code.cpp then you can compile and link your code manual
 c++ -O2 -c -IFOLDER/SEB/SEB code.cpp
 c++  code.o  -lseb -lgsl -lgslcblas -lm -lginac -LFOLDER/SEB/build  -o myexecutable
 ```
-where the user manually has to specify the location of the header files (FOLDER/SEB/SEB/) and the library (FOLDER/SEB/build/), where you should modify FOLDER to fit your local environment. Note its important the object file is specified before the libraries.
+where the user manually has to specify the location of the header files (FOLDER/SEB/SEB/ is the folder where SEB.hpp is located) and the library (FOLDER/SEB/build/ is the folder where libseb.a is located), where you should modify FOLDER to fit your local environment. Note its important the object file is specified before the libraries when compiling.
 
 ## Contributing
 
@@ -220,5 +221,15 @@ SEB is Open Source and we wellcome contributions from users. Each time a new sub
   pages={154907},
   year={2012},
   publisher={AIP Publishing}
+}
+
+@article{Jarrett2024SEB,
+  title={A computational tool for symbolic derivation of the small angle scattering from complex composite structures},
+  ahtor={Jarrett, Tobias William Jensen   and Svaneborg, Carsten}
+  journal={J. Appl. Crystallogr.},
+  volume={???},
+  pages={???},
+  year={2024},
+  publisher={IUCL}
 }
 ```
