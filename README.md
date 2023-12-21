@@ -3,16 +3,16 @@
 *SEB is a C++ library where one can build a structure by linking sub-units such as polymers or geometric shapes together and then ask SEB to analytically derive a symbolic expression for the small angle scattering of the structure.*
 
 ## Introduction
-SEB is a C++ library that allows you to build structures from building blocks such as spheres, polymers, rods, etc., and obtain their scattering properties symbolically. SEB provides functions that enable you to attach building blocks together at specific points called reference points, and compute the form factor of a composite structure, $F$, the radius of gyration, $R^2_g$, and other scattering properties. These properties are for small angle scattering theory and are meant for structures floating around, some litterature would call the isotropic form factor.
+SEB is a C++ library that allows you to build structures from sub-units such as spheres, polymers, rods, etc., and obtain their scattering properties symbolically. SEB provides functions that enable you to attach sub-units together at specific points called reference points, and compute the form factor of a composite structure, $F$, the radius of gyration, $R^2_g$, and other scattering properties relevant for structures in solution.
 
 ### Workflow
-To give you a quick overview of how SEB works, imagine a structure that you want to build from the available building blocks. You can use SEB to write a short C++ program that defines the structure, and generate the form factor as a symbolic equation. You can then plot the equation by substituting the symbols with numerical values. A typical work flow of SEB is shown in the following picture:
+To give you a quick overview of how SEB works, imagine a structure that you want to build from the available sub-units. You can use SEB to write a short C++ program that defines the structure by creating and linking sub-units together, and generate the form factor as a symbolic equation. You can then plot the equation by substituting the symbols with numerical values. A typical work flow of SEB is shown in the following picture:
 
 ![Workflow](https://github.com/Tobionecenobi/SEB/assets/45657039/59a2129c-ce13-4534-8aef-69e5b7e02600)
-1. Imagine a structure one can build from the given building blocks (Here a polymer star).
-2. Using the SEB librabry in C++ build the structure by attaching the building blocks together (Here a polymer is the building block).
-3. End the code with calling ```cout << getFormFactor("PolymerStar") << endl``` to generate the form factor as an symbolic equation.
-4. Plot the equation by substituting the symbols in the equation. 
+1. Here we imagine a star-polymer structure one can build from the given sub-units.
+2. Using the SEB library, we write a small C++ program to build the structure by attaching GaussianPolymer sub-units to a central point.
+3. End the code with calling ```cout << getFormFactor("PolymerStar") << endl``` to analytically calculate a symbolic expression for the form factor.
+4. Graph the equation by substituting the symbols in the equation for specific values. 
 
 ### Supported Subunits
 
