@@ -60,6 +60,7 @@ this will create a SEB folder in the current working directory and download the 
 
 Ubuntu:
 ```
+sudo apt update
 sudo apt install libgsl-dev libginac-dev
 ```
 
