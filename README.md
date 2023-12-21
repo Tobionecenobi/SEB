@@ -32,6 +32,13 @@ Overview of supported sub-units (SEB V1.0):
     For each sub-unit type, the parenthesis shows its SEB name and 
     reference points by which it can be linked to other sub-units.
 
+### Example structures
+
+| __                         |                      ____ |
+| ---                        |  ---                      |
+| ![](PaperFigs/fig10.png)   |  ![](PaperFigs/fig11.png) |
+| ![](PaperFigs/fig12.png)   |  ![](PaperFigs/fig13.png) |
+
 
 ### SEB Articles
 The theory behind SEB can be found in the journal articles: Carsten Svaneborg, Jan Skov Pedersen, J. Chem. Phys. 136, 104105 (2012) "[A formalism for scattering of complex composite structures. I. Applications to branched structures of asymmetric sub-units](https://doi.org/10.1063/1.3682778)" and Carsten Svaneborg, Jan Skov Pedersen, J. Chem. Phys. 136, 154907 (2012) "[A formalism for scattering of complex composite structures. II. Distributed reference points](https://doi.org/10.1063/1.3701737)"
