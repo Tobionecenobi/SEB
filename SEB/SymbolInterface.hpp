@@ -6,8 +6,10 @@
 //===========================================================================
 // included dependencies
 
+#include <sstream>
 #include <ginac/ginac.h>
 #include "Exceptions.hpp"
+
 
 using namespace GiNaC;
 using namespace std;

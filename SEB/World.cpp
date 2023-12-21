@@ -906,7 +906,7 @@ ReferencePointList World::getReferencePoints( refPoint structure)
 ParameterList World::getParams()
 {
    ParameterList pl(betas);
-   pl.merge(params);
+   pl.insert(params.begin(), params.end());
    return pl;
 }
        
@@ -914,7 +914,7 @@ ParameterList World::getParams()
 ParameterList World::getParamsq()
 {
    ParameterList pl(betas);
-   pl.merge(params);
+   pl.insert(params.begin(), params.end());
    ex q=GLEX->getSymbol("q");
    pl[q]=0;
    return pl;

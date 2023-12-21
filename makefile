@@ -10,10 +10,11 @@
 #                            This should not be used for production code!
 #
 # Chose one of the lines below
-flags=-O2  
-#flags=-O2     -DEXCEPTIONCOREDUMP
-#flags=-ggdb -DEXCEPTIONCOREDUMP
-#flags=-ggdb -DEXCEPTIONCOREDUMP  -DSPECIALFUNCTIONSERIES
+flags=-std=c++11   -O2     
+
+#flags=-std=c++11  -O2     -DEXCEPTIONCOREDUMP
+#flags=-std=c++11  -ggdb -DEXCEPTIONCOREDUMP
+#flags=-std=c++11  -ggdb -DEXCEPTIONCOREDUMP  -DSPECIALFUNCTIONSERIES
 
 
 # Detect number of cores
