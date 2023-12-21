@@ -10,10 +10,10 @@
 #                            This should not be used for production code!
 #
 # Chose one of the lines below
-flags=-O2  
-#flags=-O2     -DEXCEPTIONCOREDUMP
-#flags=-ggdb -DEXCEPTIONCOREDUMP
-#flags=-ggdb -DEXCEPTIONCOREDUMP  -DSPECIALFUNCTIONSERIES
+flags=-O2 -std=c++2a
+#flags=-O2 -std=c++2a     -DEXCEPTIONCOREDUMP
+#flags=-ggdb -std=c++2a -DEXCEPTIONCOREDUMP
+#flags=-ggdb -std=c++2a -DEXCEPTIONCOREDUMP  -DSPECIALFUNCTIONSERIES
 
 
 # Detect number of cores
