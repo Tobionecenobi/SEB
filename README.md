@@ -213,7 +213,7 @@ SEB is Open Source and we wellcome contributions from users. Each time a new sub
 
 ```
 @article{svaneborg2012formalism1,
-  title={A formalism for scattering of complex composite structures. I. Applications to branched structures of asymmetric sub-units},
+  title={A formalism for scattering of complex composite structures. {I}. {A}pplications to branched structures of asymmetric sub-units},
   author={Svaneborg, Carsten and Pedersen, Jan Skov},
   journal={J. Chem. Phys.},
   volume={136},
@@ -225,7 +225,7 @@ SEB is Open Source and we wellcome contributions from users. Each time a new sub
 
 
 @article{svaneborg2012formalism2,
-  title={A formalism for scattering of complex composite structures. I. Distributed reference points},
+  title={A formalism for scattering of complex composite structures. {II}. {D}istributed reference points},
   author={Svaneborg, Carsten and Pedersen, Jan Skov},
   journal={J. Chem. Phys.},
   volume={136},
