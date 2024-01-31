@@ -55,7 +55,7 @@ SEB has only been compiled on linux systems and has not been tested on mac OS or
 1. A working C++11 compliant compiler.
 2. A standard development environment with make and git. 
 3. The [GiNaC](https://www.ginac.de/Download.html) symbolic manipulation library for C++
-4. The [GNU scientific Libary](https://www.gnu.org/software/gsl/) 
+4. The [GNU scientific Library](https://www.gnu.org/software/gsl/) 
 
 
 ## Installing SEB on Linux
