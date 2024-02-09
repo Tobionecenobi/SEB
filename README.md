@@ -47,6 +47,8 @@ The theory behind SEB can be found in the journal articles: Carsten Svaneborg, J
 
 The reference for the SEB library itself is Tobias W. J. Jarrett and Carsten Svaneborg "[A computational tool for symbolic derivation of the small angle scattering from complex composite structures](https://arxiv.org/abs/2311.17585)"  (DRAFT MANUSCRIPT, Submitted for Journal of Applied Crystallography 2023). See below for Bibtex citations for these papers.
 
+## SEB's wiki
+If you need API information or want more examples than below on how to use SEB please see the [wiki](https://github.com/Tobionecenobi/SEB/wiki) (still under construction).
 
 ## Dependencies
 
@@ -73,10 +75,23 @@ this will create a SEB folder in the current working directory and download the 
 Ubuntu:
 ```
 sudo apt update
-sudo apt install libgsl-dev libginac-dev
+sudo apt install libcln-dev libgsl-dev libginac-dev
 ```
 
 This will install the GNU scientific library and GiNaC package along with their dependencies.
+
+> [!TIP]
+> **If you have problems installing GiNaC:**
+> If you have trouble installing GiNaC you can try to build GiNaC from the bottom. To do this see following guide in [SEB's wiki](https://github.com/Tobionecenobi/SEB/wiki/Installing-SEB:-Guide-for-GiNaC-and-GSL-Dependencies).
+
+> [!TIP]
+> **Another tip for installing GiNaC is to:**
+>
+> **1)** clone the cln library `git clone git://www.ginac.de/cln.git` and **read the INSTALL\* files.**
+>
+> **2)** clone the GiNaC library `git clone git://www.ginac.de/ginac.git` and again **read the INSTALL\* files**.
+>
+> There are guides for installing using cmake or installing on windows for both libraries.
 
 ### Compiling
 
