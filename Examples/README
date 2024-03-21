@@ -1,0 +1,18 @@
+Examples
+
+Chain_Rod_end-to-end.cpp    Polymer build by end-to-end linking N rods
+Dendrimer.cpp               Builds dendritic structures (explained in the SEB paper)
+DiBlockStarChain.cpp        Builds chain of five 4-functional diblock copolymer stars (explained in SEB paper)
+Evaluating.cpp              Example of how to evaluate scattering expressions.
+Evaluating2.cpp             More complicated example of how to evaluate scattering expressions
+Exceptions.cpp              How to catch and handle SEB exceptions.
+Micelle.cpp                 N polymers added to a spherical core.
+Output.cpp                  Examples of outputting in different formats (C++, python, default, latex)
+Output2.cpp                 Using to_string_format(..) to convert ginac expressions to strings.
+RandomLinearPolymer.cpp     Random polymer chain, where the 2nd polymer is randomly attached along the first, the 3rd randomly on the 2nd and so on.
+Star.cpp                    Creates a star structure by adding N polymers to a central invisible point.
+SymbolInterface.cpp         Example of how to interface with SEBs symbol interface to GiNaC.
+TriBlockCopolymer.cpp       Generates an ABC block-copolymer
+TriBlockSymbolic.cpp        Example of how to use symbolic sub-units to generate a tri-block structure. Symbolic sub-units can not be evaluated to numbers.
+Validation_*.cpp            These are all examples of how we validate scattering expressions in sub-units.
+

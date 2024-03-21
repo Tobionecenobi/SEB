@@ -1,0 +1,8 @@
+Code for sampling scattering from various geometric structures.
+
+DebyeSampler is a class to sample <sin(q |Ri-Rj|)>/(q |Ri-Rj|) for Ri Rj sampled for different
+geometric structures.
+
+GenerateSamples produces randomly sampled 3D vectors from various distributions.
+
+Sample_* uses these to sample from specific geometries.

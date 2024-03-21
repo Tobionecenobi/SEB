@@ -1,0 +1,16 @@
+Mathematica notebooks
+
+Here we store the derivation of the various scattering expressions
+ 
+RWloop.nb               Polymer loops.
+RWpolymer.nb            Gaussian polymers
+SolidCyllinder.nb       SolidCyllinder
+SolidSphere.nb          SolidSphere
+SolidSphericalShell.nb  ThinSphericalShell
+ThinDisk.nb             ThinDisk
+ThinRod.nb              ThinRod
+
+Sampled:                Sampled scattering.
+
+To check the Mathematica derivations, we generate sampled scattering curves using the Debye formula
+for pairs of geometric points sampled on the structures. Code + output is in sampled.
