@@ -1,0 +1,16 @@
+This is the SEB code
+
+
+Abstract_subunit.hpp    Defines ABSSubUnit which is the base class for sub-units and structures.
+Constants.hpp           Enums of constants used by SEB
+Exceptions.hpp          SEB exception handling class
+SEB.hpp                 header file used by users to import all functionality
+SpecialFunctions.*      Extends Ginac such that it can evaluate certain special functions using GNU scientific library as backend.
+Structure.hpp           Defines Structure class, which is derived from ABSSubUnit
+Subunit.*               Defines SubUnit class, which is derived from ABSSubUnit. This is the parent of all sub-units.
+SymbolInterface.*       Interface to GiNaC functionality.
+Types.hpp               Defines globally used typenames.
+World.*                 Implements the SEB user interface i.e. all the methods a user can call to make structures, and get their scattering expressions
+
+Subunits                This folder contains the actual code defining all the scattering expressions for specific sub-units.
+

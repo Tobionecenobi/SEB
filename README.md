@@ -235,9 +235,10 @@ SEB is Open Source and we wellcome contributions from users. Each time a new sub
   number={10},
   pages={104105},
   year={2012},
-  publisher={AIP Publishing}
+  publisher={AIP Publishing},
+  doi={10.1063/1.3682778},
+  url={http://doi.org/10.1063/1.3682778}
 }
-
 
 @article{svaneborg2012formalism2,
   title={A formalism for scattering of complex composite structures. {II}. {D}istributed reference points},
@@ -246,16 +247,20 @@ SEB is Open Source and we wellcome contributions from users. Each time a new sub
   volume={136},
   pages={154907},
   year={2012},
-  publisher={AIP Publishing}
+  publisher={AIP Publishing},
+  doi={10.1063/1.3701737},
+  url={http://doi.org/10.1063/1.3701737}
 }
 
 @article{Jarrett2024SEB,
-  title={A computational tool for symbolic derivation of the small angle scattering from complex composite structures},
+  title={{S}{E}{B}: a computational tool for symbolic derivation of the small-angle scattering from complex composite structures},
   ahtor={Jarrett, Tobias William Jensen   and Svaneborg, Carsten}
   journal={J. Appl. Crystallogr.},
-  volume={???},
-  pages={???},
+  volume={57},
+  pages={XXXXX},
   year={2024},
-  publisher={IUCL}
+  publisher={IUCL},
+  doi={10.1107/S1600576724001729},
+  url={http://doi.org/10.1107/S1600576724001729}
 }
-```
+

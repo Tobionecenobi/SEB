@@ -6,7 +6,7 @@ To add a new sub-unit do:
 
    2) write  stype = MYSUBUNIT  in the constructor and add MYSUBUNIT to enum in constant.hpp
 
-   3) add mysubunit.hpp to Subunits.hpp
+   3) add #include "mysubunit.hpp" to Subunits.hpp
 
    4) add a line 
  
@@ -19,5 +19,5 @@ and do make seb in the root to recompile the library.
 
 
 NB we strongly advise testing all scattering expression e.g. against numerically sampled distances
-to validate that the expressions are correct. See e.g. our ~seb/Validation folder.
+to validate that the expressions are correct. See e.g. the examples folder for examples how to do this.
 
