@@ -59,16 +59,7 @@ SEB has only been compiled on linux systems and has not been tested on mac OS or
 3. The [GiNaC](https://www.ginac.de/Download.html) symbolic manipulation library for C++
 4. The [GNU scientific Library](https://www.gnu.org/software/gsl/) 
 
-
-## Installing SEB on Linux
-
-### Cloning the code
-
-You can clone the source code in the terminal using
-```
-git clone https://github.com/Tobionecenobi/SEB.git
-```
-this will create a SEB folder in the current working directory and download the source code into this folder.
+## Installing SEB on Linux (Ubuntu)
 
 ### Install dependencies
 
@@ -82,7 +73,7 @@ This will install the GNU scientific library and GiNaC package along with their 
 
 > [!TIP]
 > **If you have problems installing GiNaC:**
-> If you have trouble installing GiNaC you can try to build GiNaC from the bottom. To do this see following guide in [SEB's wiki](https://github.com/Tobionecenobi/SEB/wiki/Installing-SEB:-Guide-for-GiNaC-and-GSL-Dependencies).
+> If you have trouble installing GiNaC you can try to build GiNaC from scratch. To do this see following guide in [SEB's wiki](https://github.com/Tobionecenobi/SEB/wiki/Installing-SEB:-Guide-for-GiNaC-and-GSL-Dependencies).
 
 > [!TIP]
 > **Another tip for installing GiNaC is to:**
@@ -93,7 +84,32 @@ This will install the GNU scientific library and GiNaC package along with their 
 >
 > There are guides for installing using cmake or installing on windows for both libraries.
 
+### Cloning the GIT code
+
+You can clone the source code in the terminal using
+```
+git clone https://github.com/Tobionecenobi/SEB.git
+```
+this will create a SEB folder in the current working directory and download the source code into this folder.
+
+
+## Installing SEB on Windows (using WSL)
+
+[Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/about) (WSL)
+allows you to install a virtual machine running e.g. Ubuntu. In that case you can use
+the Linux installation guide above.
+
+## Installing SEB on Windows (using MSYS2)
+
+See the guide [Lau Blom Grøndahl](https://lag-science.com/sebonwindows.html)
+
+## Installing SEB on Mac (using brew)
+
+See the guide [Andreas Haar Larsen](https://github.com/Tobionecenobi/SEB/issues/5#issuecomment-2220047496)
+
 ### Compiling
+
+Assuming you git cloned into the folder SEB, then
 
 ```
 cd SEB
@@ -106,8 +122,9 @@ will compile the SEB library (into build/libseb.a), along with all the examples 
 
 ```
 cd Examples
-./Micelle
+./Micelle     (or Micelle.exe on windows).
 ```
+
 
 This example calculates the scattering from 100 Gaussian polymers added to the surface of a solid sphere, in particular, the form factor, the form factor amplitude relative to the center, and the phase factor between two free polymer ends. The output of the program is
 
@@ -254,7 +271,7 @@ SEB is Open Source and we wellcome contributions from users. Each time a new sub
 
 @article{Jarrett2024SEB,
   title={{S}{E}{B}: a computational tool for symbolic derivation of the small-angle scattering from complex composite structures},
-  ahtor={Jarrett, Tobias William Jensen   and Svaneborg, Carsten}
+  author={Jarrett, Tobias William Jensen   and Svaneborg, Carsten}
   journal={J. Appl. Crystallogr.},
   volume={57},
   pages={XXXXX},
