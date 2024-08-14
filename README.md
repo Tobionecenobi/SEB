@@ -45,7 +45,7 @@ Structures and form factors. **Top left image**) linear chains of different type
 ### SEB Articles
 The theory behind SEB can be found in the journal articles: Carsten Svaneborg, Jan Skov Pedersen, J. Chem. Phys. 136, 104105 (2012) "[A formalism for scattering of complex composite structures. I. Applications to branched structures of asymmetric sub-units](https://doi.org/10.1063/1.3682778)" and Carsten Svaneborg, Jan Skov Pedersen, J. Chem. Phys. 136, 154907 (2012) "[A formalism for scattering of complex composite structures. II. Distributed reference points](https://doi.org/10.1063/1.3701737)"
 
-The reference for the SEB library itself is Tobias W. J. Jarrett and Carsten Svaneborg "[A computational tool for symbolic derivation of the small angle scattering from complex composite structures](https://arxiv.org/abs/2311.17585)"  (DRAFT MANUSCRIPT, Submitted for Journal of Applied Crystallography 2023). See below for Bibtex citations for these papers.
+The reference for the SEB library itself is Tobias W. J. Jarrett and Carsten Svaneborg "[A computational tool for symbolic derivation of the small angle scattering from complex composite structures](https://doi.org/10.1107/S1600576724001729)", Journal of Applied Crystallography 57, 587 (2024). See below for Bibtex citations for these papers.
 
 ## SEB's wiki
 If you need API information or want more examples than below on how to use SEB please see the [wiki](https://github.com/Tobionecenobi/SEB/wiki) (still under construction).
@@ -274,7 +274,7 @@ SEB is Open Source and we wellcome contributions from users. Each time a new sub
   author={Jarrett, Tobias William Jensen   and Svaneborg, Carsten}
   journal={J. Appl. Crystallogr.},
   volume={57},
-  pages={XXXXX},
+  pages={587},
   year={2024},
   publisher={IUCL},
   doi={10.1107/S1600576724001729},
