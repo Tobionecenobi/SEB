@@ -37,7 +37,11 @@ TARGETLIB=build/libseb.a
 
 # SEB depends on GiNaC and GNU Scientific library  (order matters here!)
 LIB= -lgsl -lgslcblas -lm  -lginac
+
+# Include path
 INC=
+#Uncomment the following line on Mac computers, but update 1.8.7 to fit your version of ginac
+#INC=-I/opt/homebrew/Cellar/ginac/1.8.7/include/
 
 # Code Examples should be linked against the SEB library using
 LIBLIB=-lseb ${LIB} -L./build 
@@ -57,7 +61,8 @@ SEBOBJ     = $(SEBSOURCE:$(SRC)/%.cpp=$(OBJ)/%.o)
 #Generate object files for each SEB source file
 ${OBJ}/%.o : ${SRC}/%.cpp $(SEBHEADERS)
 	mkdir -p ${OBJ}
-	c++ ${flags} -c ${LIB} ${INC}  $< -o $@
+	c++ ${flags} -c ${INC}  $< -o $@
+#	c++ ${flags} -c ${LIB} ${INC}  $< -o $@
 
 #Merge object files into library
 $(TARGETLIB) : $(SEBOBJ)
