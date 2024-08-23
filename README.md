@@ -50,16 +50,15 @@ The reference for the SEB library itself is Tobias W. J. Jarrett and Carsten Sva
 ## SEB's wiki
 If you need API information or want more examples than below on how to use SEB please see the [wiki](https://github.com/Tobionecenobi/SEB/wiki) (still under construction).
 
-## Dependencies
 
-SEB has only been compiled on linux systems and has not been tested on mac OS or Windows.  If you are using Windows, we recommend using the *Windows Subsystem for Linux* (WSL), search for it in the search bar. Before downloading the source code make sure you have installed
+## Installing
+
+SEB has only been compiled on linux systems and has not been extensively tested on mac OS or Windows.  If you are using Windows, we recommend using the *Windows Subsystem for Linux* (WSL), search for it in the search bar. Before downloading the source code make sure you have installed
 
 1. A working C++11 compliant compiler.
 2. A standard development environment with make and git. 
-3. The [GiNaC](https://www.ginac.de/Download.html) symbolic manipulation library for C++
+3. The [GiNaC](https://www.ginac.de/Download.html) symbolic manipulation library for C++. GiNaC depends on the CLN library.
 4. The [GNU scientific Library](https://www.gnu.org/software/gsl/) 
-
-## Installing
 
 ### SEB on Linux (Ubuntu)
 
@@ -70,21 +69,6 @@ Ubuntu:
 sudo apt update
 sudo apt install libcln-dev libgsl-dev libginac-dev
 ```
-
-This will install the GNU scientific library and GiNaC package along with their dependencies.
-
-> [!TIP]
-> **If you have problems installing GiNaC:**
-> If you have trouble installing GiNaC you can try to build GiNaC from scratch. To do this see following guide in [SEB's wiki](https://github.com/Tobionecenobi/SEB/wiki/Installing-SEB:-Guide-for-GiNaC-and-GSL-Dependencies).
-
-> [!TIP]
-> **Another tip for installing GiNaC is to:**
->
-> **1)** clone the cln library `git clone git://www.ginac.de/cln.git` and **read the INSTALL\* files.**
->
-> **2)** clone the GiNaC library `git clone git://www.ginac.de/ginac.git` and again **read the INSTALL\* files**.
->
-> There are guides for installing using cmake or installing on windows for both libraries.
 
 ### Cloning the GIT code
 
@@ -124,16 +108,36 @@ git clone https://github.com/Tobionecenobi/SEB.git
 
 This creates a sub-folder SEB in which you find the source code. Before you can compile SEB you need to find the location of the GiNaC include files.
 
-'''
+```
 find /opt/homebrew -name ginac.h
-'''
+```
 
 If it returns "/opt/homebrew/Cellar/ginac/1.8.7/include/ginac/ginac.h" then you should edit SEB/makefile and the INC line should be changed to
-'''
+```
 INC=-I/opt/homebrew/Cellar/ginac/1.8.7/include/
-'''
-
+```
 Then you are ready to compile SEB.
+
+### Optional: Manual compilation of GSL/CLN/GINAC
+
+
+This will install the GNU scientific library and GiNaC package along with their dependencies.
+
+> [!TIP]
+> **If you have problems installing GiNaC:**
+> If you have trouble installing GiNaC you can try to build GiNaC from scratch. To do this see following guide in [SEB's wiki](https://github.com/Tobionecenobi/SEB/wiki/Installing-SEB:-Guide-for-GiNaC-and-GSL-Dependencies).
+
+> [!TIP]
+> **Another tip for installing GiNaC is to:**
+>
+> **1)** clone the cln library `git clone git://www.ginac.de/cln.git` and **read the INSTALL\* files.**
+>
+> **2)** clone the GiNaC library `git clone git://www.ginac.de/ginac.git` and again **read the INSTALL\* files**.
+>
+> There are guides for installing using cmake or installing on windows for both libraries.
+
+
+
 
 ### Compiling
 
