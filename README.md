@@ -59,7 +59,9 @@ SEB has only been compiled on linux systems and has not been tested on mac OS or
 3. The [GiNaC](https://www.ginac.de/Download.html) symbolic manipulation library for C++
 4. The [GNU scientific Library](https://www.gnu.org/software/gsl/) 
 
-## Installing SEB on Linux (Ubuntu)
+## Installing
+
+### SEB on Linux (Ubuntu)
 
 ### Install dependencies
 
@@ -93,19 +95,45 @@ git clone https://github.com/Tobionecenobi/SEB.git
 this will create a SEB folder in the current working directory and download the source code into this folder.
 
 
-## Installing SEB on Windows (using WSL)
+### Installing SEB on Windows (using WSL)
 
 [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/about) (WSL)
 allows you to install a virtual machine running e.g. Ubuntu. In that case you can use
 the Linux installation guide above.
 
-## Installing SEB on Windows (using MSYS2)
+### Installing SEB on Windows (using MSYS2)
 
-See the guide [Lau Blom Grøndahl](https://lag-science.com/sebonwindows.html)
+See the guide [Lau Blom Grøndahl](https://lag-science.com/sebonwindows.html)   You may experience that the C++ compiler and make are not included by default.
 
 ## Installing SEB on Mac (using brew)
 
-See the guide [Andreas Haar Larsen](https://github.com/Tobionecenobi/SEB/issues/5#issuecomment-2220047496)
+Thanks to Andreas Haar Larsen / Caolan Browne for help here.
+
+In a terminal do:
+
+'''
+brew install cln
+brew install gsl
+brew install ginac
+'''
+
+Install SEB as above
+```
+git clone https://github.com/Tobionecenobi/SEB.git
+```
+
+This creates a sub-folder SEB in which you find the source code. Before you can compile SEB you need to find the location of the GiNaC include files.
+
+'''
+find /opt/homebrew -name ginac.h
+'''
+
+If it returns "/opt/homebrew/Cellar/ginac/1.8.7/include/ginac/ginac.h" then you should edit SEB/makefile and the INC line should be changed to
+'''
+INC=-I/opt/homebrew/Cellar/ginac/1.8.7/include/
+'''
+
+Then you are ready to compile SEB.
 
 ### Compiling
 
