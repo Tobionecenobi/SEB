@@ -95,13 +95,13 @@ Thanks to Andreas Haar Larsen / Caolan Browne for help here.
 
 In a terminal do:
 
-'''
+```
 brew install cln
 brew install gsl
 brew install ginac
-'''
+```
 
-Install SEB as above
+Clone SEB from github:
 ```
 git clone https://github.com/Tobionecenobi/SEB.git
 ```
@@ -116,7 +116,10 @@ If it returns "/opt/homebrew/Cellar/ginac/1.8.7/include/ginac/ginac.h" then you 
 ```
 INC=-I/opt/homebrew/Cellar/ginac/1.8.7/include/
 ```
-Then you are ready to compile SEB.
+
+Nb. your version might be different from the one above. Then you are ready to compile SEB.
+
+
 
 ### Optional: Manual compilation of GSL/CLN/GINAC
 
