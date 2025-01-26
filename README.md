@@ -41,6 +41,7 @@ Overview of supported sub-units (SEB V1.0):
 
 Structures and form factors. **Top left image**) linear chains of different types of sub-units, **Top right image**) dendrimers of different types of sub-units, **bottom left image**) Rods and polymers attached to different surfaces on geometric bodies, and **bottom right image**) chain of 5 di-block copolymer stars and its form factor for three different contrasts. See the SEB paper for details and the [PaperFigs](https://github.com/Tobionecenobi/SEB/tree/main/PaperFigs) folder for the code to generate these.
 
+For more examples and tutorials see the [sastutorials webpage](https://sastutorials.org/SEB/SEB_overview.html) [or here if the first link i depricated](https://web.archive.org/web/20250126083010/https://sastutorials.org/SEB/SEB_overview.html)
 
 ### SEB Articles
 The theory behind SEB can be found in the journal articles: Carsten Svaneborg, Jan Skov Pedersen, J. Chem. Phys. 136, 104105 (2012) "[A formalism for scattering of complex composite structures. I. Applications to branched structures of asymmetric sub-units](https://doi.org/10.1063/1.3682778)" and Carsten Svaneborg, Jan Skov Pedersen, J. Chem. Phys. 136, 154907 (2012) "[A formalism for scattering of complex composite structures. II. Distributed reference points](https://doi.org/10.1063/1.3701737)"
